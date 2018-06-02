@@ -1,5 +1,5 @@
 import time 
-from thinker import*
+from tkinter import*
 import serial
 
 puerto = serial.Serial('/dev/tty.usbmodem1411')

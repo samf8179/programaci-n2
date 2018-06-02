@@ -13,21 +13,21 @@ lienzo.create_rectangle(200,350,300,450,fill='red')
 Tk.update(ventana)
 time.sleep(3)
 
-mov="0"
+x="0"
+y="0"
 
 while True:
 
     datos = str(serial.Serial.readline(puerto))
-    if int(datos.find("arriba")) == 2:
-        mov = (datos[2:len("arriba") + 2])
-    if int(datos.find("abajo")) == 2:
-        mov = (datos[2:len("abajo") + 2])
-    if int(datos.find("derecha")) == 2:
-        mov = (datos[2:len("derecha") + 2])
-    if int(datos.find("izquierda")) == 2:
-        mov = (datos[2:len("izquierda") + 2])
+    print(datos)
+    if int(datos.find("X: ")) == 2:
+        x = (datos[5:datos.find("\r\n'")-4])
+        print(x)
+    if int(datos.find("Y: ")) == 2:
+        y = (datos[5:datos.find("\r\n'")-4])
+        print(y)
 
-
+'''
     if mov=="arriba":
         lienzo.move(1,0,-2)
         Tk.update(ventana)
@@ -46,4 +46,4 @@ while True:
         lienzo.move(1,2,0)
         Tk.update(ventana)
         time.sleep(0.1)
-
+'''
